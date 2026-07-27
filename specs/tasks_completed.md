@@ -1,7 +1,7 @@
 # Tasks Completed: Ford Mustang GT Interactive Timeline Website
 
 **Date**: 2026-07-27
-**Command**: `/speckit.implement T004 T005`
+**Command**: `/speckit.implement Phase 4`
 
 ---
 
@@ -22,6 +22,22 @@
 | T004 | Crear app/data/mustang.js con un arreglo de 7 generaciones de Mustang | ✅ DONE |
 | T005 | Agregar datos de cada generación: id, year, name, image, description para cada modelo | ✅ DONE |
 
+### Phase 3: Atomic Components
+
+| Task | Description | Status |
+|------|-------------|--------|
+| T006 | Crear el componente Button.jsx con props children, onClick, variant y href | ✅ DONE |
+| T007 | Crear el componente SectionTitle.jsx con props title y subtitle | ✅ DONE |
+
+### Phase 4: Feature Components
+
+| Task | Description | Status |
+|------|-------------|--------|
+| T008 | Crear Header.jsx con navegación fija y enlaces de desplazamiento suave | ✅ DONE |
+| T009 | Crear Hero.jsx con diseño de pantalla completa, imagen, título y botón CTA | ✅ DONE |
+| T010 | Crear TimelineCard.jsx con diseño responsivo para mostrar la generación | ✅ DONE |
+| T011 | Crear Timeline.jsx que renderice componentes TimelineCard a partir de los datos | ✅ DONE |
+
 ---
 
 ## Files Created/Modified
@@ -40,44 +56,62 @@
 - `app/globals.css` - Global styles with Tailwind and custom Mustang colors
 - `app/data/mustang.js` - Mustang generations data (7 models)
 
+### Components
+- `app/components/Button.jsx` - Reusable button component
+- `app/components/SectionTitle.jsx` - Section title component
+- `app/components/Header.jsx` - Fixed navigation header
+- `app/components/Hero.jsx` - Full-screen hero section
+- `app/components/TimelineCard.jsx` - Generation display card
+- `app/components/Timeline.jsx` - Timeline container component
+
 ### Directory Structure
 ```
 app/
-├── components/          # Reusable UI components (empty)
+├── components/
+│   ├── Button.jsx        # Reusable button component
+│   ├── SectionTitle.jsx  # Section title component
+│   ├── Header.jsx        # Fixed navigation header
+│   ├── Hero.jsx          # Full-screen hero section
+│   ├── TimelineCard.jsx  # Generation display card
+│   └── Timeline.jsx      # Timeline container component
 ├── data/
-│   └── mustang.js       # 7 Mustang generations data
-├── globals.css          # Tailwind + custom colors
-├── layout.js            # Root layout
-└── page.js              # Home page
+│   └── mustang.js        # 7 Mustang generations data
+├── globals.css           # Tailwind + custom colors
+├── layout.js             # Root layout
+└── page.js               # Home page
 public/
 └── images/
-    └── mustang/         # Mustang images (empty)
+    └── mustang/          # Mustang images (empty)
 ```
 
 ---
 
-## Data Structure
+## Component Details
 
-The `mustang.js` file contains an array of 7 Mustang generations with the following structure:
+### Header.jsx
+- Fixed navigation with scroll-aware background
+- Logo and navigation links (Inicio, Línea de Tiempo, Historia)
+- Mobile hamburger menu icon
+- Smooth scroll to sections
 
-```javascript
-{
-  id: Number,           // Unique identifier (1-7)
-  year: String,         // Production years (e.g., "1964-1973")
-  name: String,         // Generation name (e.g., "Primera Generación")
-  image: String,        // Image path (e.g., "/images/mustang/1st-gen.jpg")
-  description: String   // Historical description (100-150 words)
-}
-```
+### Hero.jsx
+- Full-screen hero section with background image
+- Gradient overlay for text readability
+- Section title and description
+- CTA button with smooth scroll to timeline
+- Animated scroll-down indicator
 
-### Generations Included:
-1. **Primera Generación (1964-1973)** - The original pony car
-2. **Segunda Generación (1974-1978)** - Mustang II, oil crisis response
-3. **Tercera Generación (1979-1993)** - Fox Body, 5.0L V8 era
-4. **Cuarta Generación (1994-2004)** - Modern design, SVT Cobra
-5. **Quinta Generación (2005-2014)** - Retro-futurist revival
-6. **Sexta Generación (2015-2023)** - Independent rear suspension
-7. **Séptima Generación (2024-Presente)** - Current generation, Dark Horse
+### TimelineCard.jsx
+- Responsive layout (alternating left/right on desktop)
+- Image with Next.js optimization
+- Year and generation name
+- Historical description
+
+### Timeline.jsx
+- Container for all generation cards
+- Vertical line connecting cards (desktop only)
+- Dots on timeline for each generation
+- Maps data from mustang.js
 
 ---
 
@@ -100,8 +134,6 @@ Custom color palette added to `app/globals.css`:
 
 ## Next Steps
 
-- [ ] T006-T007: Build atomic components (Button, SectionTitle)
-- [ ] T008-T011: Build feature components (Header, Hero, TimelineCard, Timeline)
 - [ ] T012-T013: Page assembly
 - [ ] T014-T016: Styling and polish
 - [ ] T017-T020: Accessibility and performance

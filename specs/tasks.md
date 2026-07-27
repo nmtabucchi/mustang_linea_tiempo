@@ -43,8 +43,8 @@
 
 **Propósito**: Construir primitivas reutilizables de interfaz
 
-- [ ] T006 [P] Crear el componente Button.jsx con props children, onClick, variant y href
-- [ ] T007 [P] Crear el componente SectionTitle.jsx con props title y subtitle
+- [x] T006 [P] Crear el componente Button.jsx con props children, onClick, variant y href
+- [x] T007 [P] Crear el componente SectionTitle.jsx con props title y subtitle
 
 ---
 
@@ -52,10 +52,10 @@
 
 **Propósito**: Construir las secciones principales de la página
 
-- [ ] T008 [P] Crear Header.jsx con navegación fija y enlaces de desplazamiento suave
-- [ ] T009 [P] Crear Hero.jsx con diseño de pantalla completa, imagen, título y botón de llamada a la acción
-- [ ] T010 [P] Crear TimelineCard.jsx con diseño responsivo para mostrar la generación
-- [ ] T011 Crear Timeline.jsx que renderice componentes TimelineCard a partir de los datos
+- [x] T008 [P] Crear Header.jsx con navegación fija y enlaces de desplazamiento suave
+- [x] T009 [P] Crear Hero.jsx con diseño de pantalla completa, imagen, título y botón de llamada a la acción
+- [x] T010 [P] Crear TimelineCard.jsx con diseño responsivo para mostrar la generación
+- [x] T011 Crear Timeline.jsx que renderice componentes TimelineCard a partir de los datos
 
 ---
 
