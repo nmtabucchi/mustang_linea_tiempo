@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mustang-dark: #1a1a1a;
+  --color-mustang-blue: #003478;
+  --color-mustang-silver: #c0c0c0;
+  --color-mustang-white: #ffffff;
+}
