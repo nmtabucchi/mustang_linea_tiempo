@@ -1,0 +1,55 @@
+export default function Contact() {
+  return (
+    <section id="contact" className="py-24 md:py-32 bg-mustang-dark" aria-label="Contacto">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <span className="text-mustang-blue font-mono text-sm tracking-widest uppercase">
+          Contact
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
+          ¿Tienes Preguntas?
+        </h2>
+        <p className="text-mustang-silver text-lg mb-12 max-w-2xl mx-auto">
+          Si quieres conocer más sobre la historia del Mustang GT o tienes 
+          alguna pregunta, no dudes en contactarnos.
+        </p>
+        
+        <div className="bg-mustang-dark-secondary rounded-2xl p-8 md:p-12 border border-mustang-border">
+          <form className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Tu nombre"
+                  className="w-full px-5 py-4 bg-mustang-dark border border-mustang-border rounded-xl text-mustang-white placeholder-mustang-gray focus:outline-none focus:border-mustang-blue transition-colors duration-300"
+                  aria-label="Nombre"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Tu email"
+                  className="w-full px-5 py-4 bg-mustang-dark border border-mustang-border rounded-xl text-mustang-white placeholder-mustang-gray focus:outline-none focus:border-mustang-blue transition-colors duration-300"
+                  aria-label="Email"
+                />
+              </div>
+            </div>
+            <div>
+              <textarea
+                placeholder="Tu mensaje"
+                rows={5}
+                className="w-full px-5 py-4 bg-mustang-dark border border-mustang-border rounded-xl text-mustang-white placeholder-mustang-gray focus:outline-none focus:border-mustang-blue transition-colors duration-300 resize-none"
+                aria-label="Mensaje"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full md:w-auto px-10 py-4 bg-mustang-blue text-mustang-white font-semibold rounded-xl hover:bg-mustang-blue-hover transition-all duration-300 hover:shadow-lg hover:shadow-mustang-blue/25"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

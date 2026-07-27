@@ -4,27 +4,47 @@ export default function TimelineCard({ year, name, image, description, index }) 
   const isEven = index % 2 === 0;
 
   return (
-    <div className={`flex flex-col md:flex-row items-center gap-8 mb-16 ${
+    <div className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-20 ${
       isEven ? "md:flex-row" : "md:flex-row-reverse"
     }`}>
       <div className="w-full md:w-1/2">
-        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl group">
+        <div className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer">
           <Image
             src={image}
             alt={`${name} - Ford Mustang GT (${year})`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, 50vw"
             loading={index === 0 ? "eager" : "lazy"}
           />
-          <div className="absolute inset-0 bg-mustang-dark/20 group-hover:bg-mustang-dark/10 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-mustang-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            <span className="text-mustang-white font-semibold">Ver Detalles →</span>
+          </div>
         </div>
       </div>
 
       <div className="w-full md:w-1/2">
-        <div className="text-mustang-blue font-semibold text-lg mb-2" aria-hidden="true">{year}</div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{name}</h3>
-        <p className="text-mustang-silver leading-relaxed">{description}</p>
+        <span className="inline-block text-mustang-blue font-mono text-sm tracking-widest mb-3">
+          {year}
+        </span>
+        <h3 className="text-3xl md:text-4xl font-bold text-mustang-white mb-4 leading-tight">
+          {name}
+        </h3>
+        <p className="text-mustang-silver leading-relaxed text-lg">
+          {description}
+        </p>
+        <div className="mt-6">
+          <a 
+            href="#" 
+            className="inline-flex items-center text-mustang-blue hover:text-mustang-blue-hover font-medium transition-colors duration-300"
+          >
+            Explorar Generación
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   );

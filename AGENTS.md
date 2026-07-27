@@ -72,3 +72,10 @@ Read `specs/constitution.md` at the start of every session. All code must follow
 
 - `frontend-design` - Design principles and visual guidelines
 - `tailwind-css-patterns` - Tailwind CSS patterns and utilities
+
+## MCP Configuration
+
+### Figma MCP
+- Location: `.cursor/mcp.json`
+- Environment Variable: `FIGMA_API_KEY` (required)
+- See `.cursor/Figma-MCP-README.md` for setup instructions
