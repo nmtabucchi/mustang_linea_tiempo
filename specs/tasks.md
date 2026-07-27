@@ -34,8 +34,8 @@
 
 **Propósito**: Crear la estructura de datos de las generaciones de Mustang
 
-- [ ] T004 Crear app/data/mustang.js con un arreglo de 7 generaciones de Mustang
-- [ ] T005 Agregar datos de cada generación: id, year, name, image, description para cada modelo
+- [x] T004 Crear app/data/mustang.js con un arreglo de 7 generaciones de Mustang
+- [x] T005 Agregar datos de cada generación: id, year, name, image, description para cada modelo
 
 ---
 
