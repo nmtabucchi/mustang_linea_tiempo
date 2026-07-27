@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "./Button";
 import SectionTitle from "./SectionTitle";
 
@@ -6,13 +7,19 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-mustang-dark"
+      aria-label="Hero"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-mustang-dark/70 to-mustang-dark z-10" />
-
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/mustang/hero.jpg')" }}
-      />
+      <div className="absolute inset-0 z-10">
+        <Image
+          src="/images/mustang/hero.jpg"
+          alt="Ford Mustang GT clásico en color rojo"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-mustang-dark/70 to-mustang-dark" />
+      </div>
 
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
         <SectionTitle
@@ -31,12 +38,17 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <a href="#timeline" aria-label="Scroll down">
+        <a
+          href="#timeline"
+          className="focus:outline-none focus:ring-2 focus:ring-mustang-blue focus:ring-offset-2 focus:ring-offset-mustang-dark rounded"
+          aria-label="Desplazarse a la línea de tiempo"
+        >
           <svg
             className="w-8 h-8 text-mustang-silver"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"

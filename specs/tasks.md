@@ -63,8 +63,8 @@
 
 **Propósito**: Componer todos los componentes en la página principal
 
-- [ ] T012 Actualizar app/page.js para importar y componer Header, Hero y Timeline
-- [ ] T013 Pasar los datos mustangGenerations al componente Timeline
+- [x] T012 Actualizar app/page.js para importar y componer Header, Hero y Timeline
+- [x] T013 Pasar los datos mustangGenerations al componente Timeline
 
 ---
 
@@ -72,9 +72,9 @@
 
 **Propósito**: Aplicar estilos responsivos y un pulido visual
 
-- [ ] T014 Aplicar clases responsivas de Tailwind a todos los componentes (móvil, tableta, escritorio)
-- [ ] T015 Agregar estados hover y transiciones suaves a los elementos interactivos
-- [ ] T016 Configurar el comportamiento de desplazamiento suave para los anclajes de navegación
+- [x] T014 Aplicar clases responsivas de Tailwind a todos los componentes (móvil, tableta, escritorio)
+- [x] T015 Agregar estados hover y transiciones suaves a los elementos interactivos
+- [x] T016 Configurar el comportamiento de desplazamiento suave para los anclajes de navegación
 
 ---
 
@@ -82,10 +82,10 @@
 
 **Propósito**: Asegurar la accesibilidad y optimizar el rendimiento
 
-- [ ] T017 Agregar elementos HTML semánticos (nav, header, main, section, article)
-- [ ] T018 Agregar texto alternativo a todas las imágenes
-- [ ] T019 Probar la navegación por teclado en todos los elementos interactivos
-- [ ] T020 Optimizar las imágenes con el componente next/image
+- [x] T017 Agregar elementos HTML semánticos (nav, header, main, section, article)
+- [x] T018 Agregar texto alternativo a todas las imágenes
+- [x] T019 Probar la navegación por teclado en todos los elementos interactivos
+- [x] T020 Optimizar las imágenes con el componente next/image
 
 ---
 

@@ -1,6 +1,6 @@
 export default function Button({ children, onClick, variant = "primary", href }) {
   const baseStyles =
-    "px-6 py-3 font-semibold rounded-lg transition-all duration-300 cursor-pointer";
+    "px-6 py-3 font-semibold rounded-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-mustang-blue focus:ring-offset-2 focus:ring-offset-mustang-dark";
 
   const variants = {
     primary: "bg-mustang-blue text-white hover:bg-mustang-blue/80",
