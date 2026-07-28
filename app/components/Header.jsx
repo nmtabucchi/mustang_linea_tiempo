@@ -18,6 +18,7 @@ export default function Header() {
     { name: "Inicio", href: "#hero" },
     { name: "Línea de Tiempo", href: "#timeline" },
     { name: "Historia", href: "#about" },
+    { name: "Fuentes", href: "#sources" },
     { name: "Contacto", href: "#contact" },
   ];
 
@@ -43,7 +44,7 @@ export default function Header() {
             <li key={link.name} role="none">
               <a
                 href={link.href}
-                className="text-mustang-silver hover:text-mustang-white text-sm font-medium transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-mustang-blue after:transition-all after:duration-300 hover:after:w-full"
+                className="text-mustang-silver hover:text-mustang-white text-sm font-medium transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-mustang-red after:transition-all after:duration-300 hover:after:w-full"
                 role="menuitem"
               >
                 {link.name}

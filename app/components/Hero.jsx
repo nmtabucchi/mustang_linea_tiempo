@@ -21,7 +21,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
-        <p className="text-mustang-blue font-semibold text-sm tracking-widest uppercase mb-4">
+        <p className="text-mustang-red font-semibold text-sm tracking-widest uppercase mb-4">
           Interactive Portfolio
         </p>
         

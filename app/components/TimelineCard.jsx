@@ -25,7 +25,7 @@ export default function TimelineCard({ year, name, image, description, index }) 
       </div>
 
       <div className="w-full md:w-1/2">
-        <span className="inline-block text-mustang-blue font-mono text-sm tracking-widest mb-3">
+        <span className="inline-block text-mustang-red font-mono text-sm tracking-widest mb-3">
           {year}
         </span>
         <h3 className="text-3xl md:text-4xl font-bold text-mustang-white mb-4 leading-tight">
@@ -37,7 +37,7 @@ export default function TimelineCard({ year, name, image, description, index }) 
         <div className="mt-6">
           <a 
             href="#" 
-            className="inline-flex items-center text-mustang-blue hover:text-mustang-blue-hover font-medium transition-colors duration-300"
+            className="inline-flex items-center text-mustang-red hover:text-mustang-red-hover font-medium transition-colors duration-300"
           >
             Explorar Generación
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

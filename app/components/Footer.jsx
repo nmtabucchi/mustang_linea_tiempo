@@ -32,6 +32,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#sources" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
+                  Fuentes
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
                   Contacto
                 </a>

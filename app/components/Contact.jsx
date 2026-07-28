@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 md:py-32 bg-mustang-dark" aria-label="Contacto">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <span className="text-mustang-blue font-mono text-sm tracking-widest uppercase">
+        <span className="text-mustang-red font-mono text-sm tracking-widest uppercase">
           Contact
         </span>
         <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
@@ -43,7 +43,7 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full md:w-auto px-10 py-4 bg-mustang-blue text-mustang-white font-semibold rounded-xl hover:bg-mustang-blue-hover transition-all duration-300 hover:shadow-lg hover:shadow-mustang-blue/25"
+              className="w-full md:w-auto px-10 py-4 bg-mustang-red text-mustang-white font-semibold rounded-xl hover:bg-mustang-red-hover transition-all duration-300 hover:shadow-lg hover:shadow-mustang-red/25"
             >
               Enviar Mensaje
             </button>
