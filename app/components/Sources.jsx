@@ -2,12 +2,9 @@ import mustangGenerations from "../data/mustang";
 
 export default function Sources() {
   return (
-    <section id="sources" className="py-24 md:py-32 bg-mustang-dark-secondary" aria-label="Fuentes y referencias">
+    <section id="sources" className="py-16 md:py-16 bg-mustang-dark-secondary" aria-label="Fuentes y referencias">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-mustang-red font-mono text-sm tracking-widest uppercase">
-            Sources
-          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
             Fuentes y Referencias
           </h2>

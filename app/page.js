@@ -3,7 +3,6 @@ import Hero from "./components/Hero";
 import Timeline from "./components/Timeline";
 import About from "./components/About";
 import Sources from "./components/Sources";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <Timeline />
       <About />
       <Sources />
-      <Contact />
       <Footer />
     </main>
   );

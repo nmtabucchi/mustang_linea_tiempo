@@ -242,7 +242,7 @@ module.exports = {
 - Cuerpo: `font-body text-lg text-mustang-silver`
 
 **Espaciado:**
-- Relleno de sección: `py-16 md:py-24`
+- Relleno de sección: `py-16 md:py-16`
 - Contenedor: `max-w-7xl mx-auto px-4`
 
 ---

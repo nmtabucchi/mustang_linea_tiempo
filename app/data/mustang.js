@@ -5,7 +5,7 @@ const mustangGenerations = [
     name: "Primera Generación",
     image: "/images/mustang/1st-gen.jpg",
     description:
-      "El Ford Mustang fue presentado el 17 de abril de 1964 en la Feria Mundial de Nueva York. Revolucionó la industria automotriz al crear el segmento de los pony cars con un diseño deportivo asequible. Diseñado bajo la dirección de Lee Iacocca, produjo más de un millón de unidades en sus primeros dos años. Se convirtió en un ícono cultural de la década de 1960, apareciendo en películas como Bullitt. Ofrecía motores desde un seis cilindros hasta un potente V8 de 289 pulgadas cúbicas.",
+      "El Ford Mustang fue presentado el 17 de abril de 1964 en la Feria Mundial de Nueva York. Revolucionó la industria automotriz al crear el segmento de los deportivos compactos y asequibles, con un diseño audaz. Diseñado bajo la dirección de Lee Iacocca, produjo más de un millón de unidades en sus primeros dos años. Se convirtió en un ícono cultural de la década de 1960, apareciendo en películas como Bullitt. Ofrecía motores desde un seis cilindros hasta un potente V8 de 289 pulgadas cúbicas de cilindrada.",
     sources: {
       information: [
         { name: "Ford Motor Company - Official History", url: "https://www.ford.com" },
@@ -23,7 +23,7 @@ const mustangGenerations = [
     name: "Segunda Generación (Mustang II)",
     image: "/images/mustang/2nd-gen.jpg",
     description:
-      "Respondió a la crisis del petróleo de 1973 con un diseño más compacto y eficiente. A pesar de ser más pequeño, mantuvo el espíritu deportivo de la marca. Ganó el Motor Trend Car of the Year en 1974, demostrando que un Mustang podía adaptarse a los tiempos difíciles. Disponible como hatchback y fastback, ofrecía motores más eficientes incluyendo una versión V8 de 302 pulgadas cúbicas.",
+      "Respondió a la crisis del petróleo de 1973 con un diseño más compacto y eficiente. A pesar de ser más pequeño, mantuvo el espíritu deportivo de la marca. Ganó el Motor Trend Car of the Year en 1974, demostrando que un Mustang podía adaptarse a los tiempos difíciles. Disponible como hatchback y fastback, ofrecía motores más eficientes incluyendo una versión V8 de 302 pulgadas cúbicas de cilindrada.",
     sources: {
       information: [
         { name: "Motor Trend - Mustang II History", url: "https://www.motortrend.com" },
@@ -40,7 +40,7 @@ const mustangGenerations = [
     name: "Tercera Generación (Fox Body)",
     image: "/images/mustang/3rd-gen.jpg",
     description:
-      "Basado en la plataforma Fox, reintrodujo el rendimiento con variantes como la Mustang GT 5.0. Se convirtió en un ícono de la cultura automotriz de los 80. El Mustang SVO ofrecía turboalimentación para los entusiastas de alto rendimiento. El motor V8 de 5.0 litros (302 pulgadas cúbicas) se legendario por su sonido y potencia modificable. Esta generación mantuvo vivo el legado del Mustang durante una época de cambios en la industria.",
+      "Basado en la plataforma Fox, reintrodujo el rendimiento con variantes como la Mustang GT 5.0. Se convirtió en un ícono de la cultura automotriz de los 80. El Mustang SVO ofrecía turboalimentación para los entusiastas de alto rendimiento. El motor V8 de 5.0 litros (302 pulgadas cúbicas de cilindrada) es legendario por su sonido y potencia modificable. Esta generación mantuvo vivo el legado del Mustang durante una época de cambios en la industria.",
     sources: {
       information: [
         { name: "Mustang Monthly - Fox Body Guide", url: "https://www.mustangmonthly.com" },
@@ -74,7 +74,7 @@ const mustangGenerations = [
     name: "Quinta Generación (Retro-Futurista)",
     image: "/images/mustang/5th-gen.jpg",
     description:
-      "Regresó a las raíces con un diseño retro-futurista inspirado en los modelos clásicos. El Mustang GT 2005 marcó el renacimiento del pony car americano. El Mustang Shelby GT500 rendía más de 500 caballos de fuerza, mientras que el Mustang Boss 302 y el Mustang Laguna Seca se convirtieron en leyendas de la pista. Esta generación revivió el espíritu del Mustang original con prestaciones contemporáneas.",
+      "Regresó a las raíces con un diseño retro-futurista inspirado en los modelos clásicos. El Mustang GT 2005 marcó el renacimiento del automóvil americano. El Mustang Shelby GT500 rendía más de 500 caballos de fuerza, mientras que el Mustang Boss 302 y el Mustang Laguna Seca se convirtieron en leyendas de la pista. Esta generación revivió el espíritu del Mustang original con prestaciones contemporáneas.",
     sources: {
       information: [
         { name: "Road & Track - S197 Mustang", url: "https://www.roadandtrack.com" },

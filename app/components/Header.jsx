@@ -19,7 +19,6 @@ export default function Header() {
     { name: "Línea de Tiempo", href: "#timeline" },
     { name: "Historia", href: "#about" },
     { name: "Fuentes", href: "#sources" },
-    { name: "Contacto", href: "#contact" },
   ];
 
   return (

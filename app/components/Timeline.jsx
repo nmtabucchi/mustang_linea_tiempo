@@ -3,12 +3,9 @@ import TimelineCard from "./TimelineCard";
 
 export default function Timeline() {
   return (
-    <section id="timeline" className="py-24 md:py-32 bg-mustang-dark" aria-label="Línea de tiempo del Mustang GT">
+    <section id="timeline" className="py-16 md:py-16 bg-mustang-dark" aria-label="Línea de tiempo del Mustang GT">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 md:mb-24">
-          <span className="text-mustang-red font-mono text-sm tracking-widest uppercase">
-            Timeline
-          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
             Línea de Tiempo
           </h2>

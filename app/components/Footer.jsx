@@ -2,9 +2,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-12 bg-mustang-dark-secondary border-t border-mustang-border" role="contentinfo">
+    <footer className="py-6 md:py-8 bg-mustang-dark-secondary border-t border-mustang-border" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <div className="text-center md:text-left">
             <a href="#hero" className="text-xl font-bold text-mustang-white hover:text-mustang-blue transition-colors duration-300">
               Mustang GT
@@ -34,11 +34,6 @@ export default function Footer() {
               <li>
                 <a href="#sources" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
                   Fuentes
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
-                  Contacto
                 </a>
               </li>
             </ul>

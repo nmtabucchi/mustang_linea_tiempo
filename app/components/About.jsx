@@ -2,13 +2,10 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-mustang-dark-secondary" aria-label="Sobre el Mustang GT">
+    <section id="about" className="py-16 md:py-16 bg-mustang-dark-secondary" aria-label="Sobre el Mustang GT">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <span className="text-mustang-red font-mono text-sm tracking-widest uppercase">
-              About
-            </span>
             <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
               La Leyenda Americana
             </h2>
