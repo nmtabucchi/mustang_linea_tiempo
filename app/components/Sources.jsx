@@ -29,7 +29,7 @@ export default function Sources() {
                   {generation.year}
                 </span>
                 <h3 className="text-xl font-bold text-mustang-white mt-1">
-                  {generation.name}
+                  {t(`generation.${generation.id}.name`, generation.name)}
                 </h3>
               </div>
 

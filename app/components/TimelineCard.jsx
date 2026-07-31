@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useI18n } from "../lib/I18nProvider";
 
-export default function TimelineCard({ year, name, image, description, index }) {
+export default function TimelineCard({ id, year, name, image, description, index }) {
   const { t } = useI18n();
   const isEven = index % 2 === 0;
 
@@ -15,7 +15,7 @@ export default function TimelineCard({ year, name, image, description, index }) 
         <div className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer">
           <Image
             src={image}
-            alt={`${name} - Ford Mustang GT (${year})`}
+            alt={`${t(`generation.${id}.name`, name)} - Ford Mustang GT (${year})`}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -30,10 +30,10 @@ export default function TimelineCard({ year, name, image, description, index }) 
           {year}
         </span>
         <h3 className="text-3xl md:text-4xl font-bold text-mustang-white mb-4 leading-tight">
-          {name}
+          {t(`generation.${id}.name`, name)}
         </h3>
         <p className="text-mustang-silver leading-relaxed text-lg">
-          {description}
+          {t(`generation.${id}.description`, description)}
         </p>
         <div className="mt-6">
           <a 

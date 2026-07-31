@@ -28,6 +28,7 @@ export default function Timeline() {
                    style={{ top: "50%" }}
                    aria-hidden="true" />
               <TimelineCard
+                id={generation.id}
                 year={generation.year}
                 name={generation.name}
                 image={generation.image}
