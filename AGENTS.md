@@ -1,104 +1,170 @@
-# AGENTS.md - Mustang: Linea de Tiempo
+# AGENTS.md — Mustang GT Timeline
 
-## Constitution
+## Resumen del proyecto
 
-Read `specs/constitution.md` at the start of every session. All code must follow its principles.
+Sitio de una sola página construido con Next.js App Router que muestra las generaciones del Ford Mustang GT. Contenido estático con i18n del lado del cliente (ES/EN/PT). Sin autenticación, sin rutas API, sin base de datos.
 
-## Key Rules
+---
 
-1. **JavaScript only** - No TypeScript
-2. **Tailwind CSS only** - No inline CSS, no other CSS frameworks
-3. **Next.js App Router** - Use App Router exclusively
-4. **Spec-Driven Development** - Document before implementing
-5. **Componentization** - Small, reusable, single-responsibility components
+## Comandos
 
-## Project Structure
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Iniciar servidor de desarrollo (puerto 3000) |
+| `npm run build` | Build de producción (ejecutar antes de hacer commit) |
+| `npm run start` | Iniciar servidor de producción |
+| `npm run lint` | ESLint (`eslint-config-next/core-web-vitals`) |
 
+**No hay framework de testing configurado.** No hay archivos de test, ni scripts de test.
+
+---
+
+## Estilo de código — JavaScript
+
+### Lenguaje y configuración
+- **Solo JavaScript** — Sin TypeScript, sin `.ts`/`.tsx`
+- **JSX** solo en archivos `.jsx`
+- Alias de ruta `@/*` mapea a la raíz del proyecto
+
+### Framework
+- **Next.js App Router** — directorio `app/`, enrutamiento basado en archivos
+- **React 19** — hooks, server components por defecto
+- **`"use client"`** — Requerido al inicio de componentes que usen: `useState`, `useEffect`, `useContext`, `useRef`, event handlers, APIs del navegador, o `useI18n()`
+
+### Imports (orden: externos → libs/datos internos → componentes hermanos → estilos)
+```js
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
+import { useI18n } from "../lib/I18nProvider";
+import mustangGenerations from "../data/mustang";
+import Button from "./Button";
+
+import "./globals.css";
 ```
-/app
-  /components    # Reusable UI components
-  /public        # Static assets
-  /styles        # Global styles (Tailwind config)
-  /lib           # Business logic and utilities
-  /data          # Static data
+- Sin archivos barrel (`index.js`)
+- Solo imports relativos (no usar `@/`)
+
+### Patrones de exportación
+```js
+// Componente — export por defecto, archivo PascalCase
+export default function Button({ children, variant = "primary", ...rest }) { ... }
+
+// Hook — export nombrado, camelCase
+export function useI18n() { ... }
+
+// Utilidad — export nombrado, camelCase
+export async function loadTranslations(lang) { ... }
+
+// Context — export nombrado + por defecto
+export function useI18n() { ... }
+export default function I18nProvider({ children }) { ... }
 ```
 
-## Architecture Principles
+### Nombres
+| Cosa | Convención | Ejemplo |
+|------|-----------|---------|
+| Componentes | PascalCase | `TimelineCard` |
+| Archivos de componentes | PascalCase.jsx | `TimelineCard.jsx` |
+| Hooks | camelCase, prefijo `use` | `useI18n` |
+| Utilidades | camelCase | `loadTranslations`, `saveLang` |
+| Claves de traducción | notación de puntos | `"header.nav.home"`, `"generation.3.name"` |
+| CSS | Solo utilidades Tailwind | sin nombres de clase personalizados |
 
-- Separate visual components from data
-- Separate business logic from configuration
-- Low coupling, high readability
-- No unnecessary duplication
-- Descriptive naming
+### Patrón del cuerpo del componente
+```jsx
+export default function TimelineCard({ id, year, name, image, description, index }) {
+  const { t } = useI18n();
+  const isEven = index % 2 === 0;   // derivar antes del return
 
-## Responsive Breakpoints (Tailwind)
+  return (
+    <div className={`flex ... ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}>
+```
+- Calcular valores derivados en el cuerpo de la función, no en el JSX
+- Desestructurar props con valores por defecto
+- Propagar `{...rest}` para enviar `data-*` o event handlers al DOM
 
-- Mobile: default
-- Tablet: `md:`
-- Laptop: `lg:`
-- Desktop: `xl:`
+### i18n — `t(key, fallback)`
+```jsx
+<h2>{t("timeline.title", "Línea de Tiempo")}</h2>
+<h3>{t(`generation.${id}.name`, name)}</h3>
+<nav aria-label={t("header.nav.aria", "Navegación principal")}>
+<input placeholder={t("contact.name.placeholder", "Tu nombre")} />
+```
+- Siempre proporcionar el fallback en español como segundo argumento
+- El fallback se muestra mientras cargan las traducciones y sirve como idioma por defecto
+- Template literals para claves dinámicas: `` t(`generation.${id}.name`, name) ``
 
-## Components to Build
+### Tailwind CSS
+- **Sin CSS inline** (excepto el `dangerouslySetInnerHTML` del script bootstrap en layout.js)
+- **Sin CSS modules, sin styled-components**
+- Colores personalizados: `mustang-dark`, `mustang-dark-secondary`, `mustang-white`, `mustang-silver`, `mustang-gray`, `mustang-red`, `mustang-red-hover`, `mustang-blue`, `mustang-border`
+- Responsive: `md:` (tablet), `lg:` (laptop), `xl:` (desktop)
+- Transiciones: `transition-colors duration-300`, `transition-all duration-300`
 
-- Header (fixed navbar)
-- Hero section
-- Timeline
-- TimelineCard
-- Button
-- SectionTitle
+### Manejo de errores
+```js
+// Mensajes con significado, en español para el usuario
+try {
+  const response = await fetch(`/data/translations/${lang}.json`);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+} catch (err) {
+  throw new Error(`Error al cargar traducciones: ${lang} — ${err.message}`);
+}
 
-## Performance Rules
+// Catch silencioso para operaciones no críticas (localStorage en incógnito)
+try { localStorage.setItem("lang", lang); } catch { }
+```
+- Toast de error en I18nProvider se auto-descarta después de 5s
+- Fallos no críticos son silenciosos
 
-- Use next/image for all images
-- Lazy load below-the-fold content
-- Avoid unnecessary re-renders
-- Smooth scroll for navigation
+### Accesibilidad
+- HTML semántico: `<nav>`, `<section>`, `<article>`, `<footer>`, `<header>`
+- `aria-label` en secciones y controles interactivos (mediante `t()`)
+- `aria-expanded` en toggles, `aria-hidden` en SVGs decorativos
+- Roles: `list`/`listitem`, `alert`, `banner`, `contentinfo`, `menubar`/`menuitem`, `listbox`/`option`
+- Todas las imágenes usan `alt` (mediante `next/image`)
 
-## Interactions
+---
 
-- Hover states on interactive elements
-- Smooth transitions (no complex animations)
-- Fixed navbar with smooth scroll to sections
+## Arquitectura
 
-## Do NOT Use
+### Estructura de directorios
+```
+app/
+  layout.js          # Raíz — I18nProvider + script bootstrap
+  page.js            # Compone todas las secciones
+  globals.css        # Directivas Tailwind + colores @theme personalizados
+  components/        # 10 componentes (Header, Hero, Timeline, etc.)
+  lib/               # i18n.js, I18nProvider.js
+  data/              # mustang.js, translations/{es,en,pt}.json
+public/
+  data/translations/ # Copia del JSON para servirlo como estático
+  images/mustang/    # 7 imágenes de generaciones
+```
 
-- TypeScript
-- CSS frameworks other than Tailwind
-- Unnecessary libraries
-- Complex animations without justification
-- Inline CSS (except rare cases)
+### Flujo de datos
+```
+layout.js ──<html lang>──> script bootstrap establece lang desde localStorage
+  └── I18nProvider (cliente) ──loadTranslations()──> estado translations
+        └── useI18n() ──{ lang, t, changeLanguage }──> todos los componentes
+              └── t(key, fallback) renderiza el texto traducido
+```
 
-## Skills Available
+### Dependencias
+- **next** 16.2.12, **react**/**react-dom** 19.2.4, **tailwindcss** 4, **@tailwindcss/postcss**, **eslint-config-next**
 
-- `frontend-design` - Design principles and visual guidelines
-- `tailwind-css-patterns` - Tailwind CSS patterns and utilities
+Sin otras dependencias.
 
-## MCP Configuration
+---
 
-### Figma MCP
-- Location: `.cursor/mcp.json`
-- Environment Variable: `FIGMA_API_KEY` (required)
-- See `.cursor/Figma-MCP-README.md` for setup instructions
+## Flujo de trabajo Spec-Driven
 
-## Current Feature: multi-language-i18n
+1. **Define** — Especificación en `specs/<id>-<nombre>/spec.md`
+2. **Revisa** — Valida contra `specs/constitution.md`
+3. **Implementa** — Construye según la especificación aprobada
+4. **Verifica** — `npm run build` debe pasar
 
-## i18n Architecture (Updated)
+Nunca hacer commit salvo que se pida explícitamente. Nunca hacer push sin instrucción explícita.
 
-**Pattern**: React Context + `t(key, fallback)` function — NO `data-i18n` / `applyTranslations`
-
-### How it works
-1. `I18nProvider` (client component in `app/lib/I18nProvider.js`) loads translations via Fetch and stores them in state
-2. `useI18n()` hook provides `{ lang, t, changeLanguage, loading, error }` via context
-3. Components use `{t("key", "Spanish fallback")}` in JSX — React re-renders automatically when language changes
-4. `changeLanguage()` updates translations state → all consumers re-render with new translations
-5. No direct DOM mutation — React fully owns the DOM, eliminating `removeChild` conflicts
-
-### Key files
-- `app/lib/i18n.js` — `loadTranslations()`, `getCurrentLang()`, `saveLang()`
-- `app/lib/I18nProvider.js` — Context provider with `t()` function, error toast, localStorage
-- `app/data/translations/es.json`, `en.json`, `pt.json` — 57 translation keys each
-- `public/data/translations/` — copies served as static assets (Next.js `public/` dir)
-- All components in `app/components/` use `"use client"` + `useI18n()` → `t()`
-
-- Spec: `specs/001-multi-language-i18n/spec.md`
-- Tasks: `specs/001-multi-language-i18n/tasks.md`
+Leer `specs/constitution.md` al inicio de cada sesión.
