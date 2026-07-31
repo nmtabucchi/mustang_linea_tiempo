@@ -79,3 +79,26 @@ Read `specs/constitution.md` at the start of every session. All code must follow
 - Location: `.cursor/mcp.json`
 - Environment Variable: `FIGMA_API_KEY` (required)
 - See `.cursor/Figma-MCP-README.md` for setup instructions
+
+## Current Feature: multi-language-i18n
+
+## i18n Architecture (Updated)
+
+**Pattern**: React Context + `t(key, fallback)` function — NO `data-i18n` / `applyTranslations`
+
+### How it works
+1. `I18nProvider` (client component in `app/lib/I18nProvider.js`) loads translations via Fetch and stores them in state
+2. `useI18n()` hook provides `{ lang, t, changeLanguage, loading, error }` via context
+3. Components use `{t("key", "Spanish fallback")}` in JSX — React re-renders automatically when language changes
+4. `changeLanguage()` updates translations state → all consumers re-render with new translations
+5. No direct DOM mutation — React fully owns the DOM, eliminating `removeChild` conflicts
+
+### Key files
+- `app/lib/i18n.js` — `loadTranslations()`, `getCurrentLang()`, `saveLang()`
+- `app/lib/I18nProvider.js` — Context provider with `t()` function, error toast, localStorage
+- `app/data/translations/es.json`, `en.json`, `pt.json` — 57 translation keys each
+- `public/data/translations/` — copies served as static assets (Next.js `public/` dir)
+- All components in `app/components/` use `"use client"` + `useI18n()` → `t()`
+
+- Spec: `specs/001-multi-language-i18n/spec.md`
+- Tasks: `specs/001-multi-language-i18n/tasks.md`

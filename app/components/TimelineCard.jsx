@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useI18n } from "../lib/I18nProvider";
 
 export default function TimelineCard({ year, name, image, description, index }) {
+  const { t } = useI18n();
   const isEven = index % 2 === 0;
 
   return (
@@ -18,9 +22,6 @@ export default function TimelineCard({ year, name, image, description, index }) 
             loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-mustang-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-            <span className="text-mustang-white font-semibold">Ver Detalles →</span>
-          </div>
         </div>
       </div>
 
@@ -39,7 +40,7 @@ export default function TimelineCard({ year, name, image, description, index }) 
             href="#" 
             className="inline-flex items-center text-mustang-red hover:text-mustang-red-hover font-medium transition-colors duration-300"
           >
-            Explorar Generación
+            <span>{t("timeline.card.explore", "Explorar Generación")}</span>
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

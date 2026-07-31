@@ -1,4 +1,4 @@
-export default function Button({ children, onClick, variant = "primary", href }) {
+export default function Button({ children, onClick, variant = "primary", href, ...rest }) {
   const baseStyles =
     "inline-flex items-center justify-center px-8 py-4 font-semibold text-sm tracking-wide rounded-lg transition-all duration-300 cursor-pointer";
 
@@ -12,14 +12,14 @@ export default function Button({ children, onClick, variant = "primary", href })
 
   if (href) {
     return (
-      <a href={href} className={className}>
+      <a href={href} className={className} {...rest}>
         {children}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={className}>
+    <button onClick={onClick} className={className} {...rest}>
       {children}
     </button>
   );

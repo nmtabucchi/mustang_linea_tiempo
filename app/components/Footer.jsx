@@ -1,4 +1,9 @@
+"use client";
+
+import { useI18n } from "../lib/I18nProvider";
+
 export default function Footer() {
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -7,33 +12,33 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <div className="text-center md:text-left">
             <a href="#hero" className="text-xl font-bold text-mustang-white hover:text-mustang-blue transition-colors duration-300">
-              Mustang GT
+              {t("header.logo", "Mustang GT")}
             </a>
             <p className="text-mustang-gray text-sm mt-2">
-              Interactive Timeline Portfolio
+              {t("site.tagline", "Interactive Timeline Portfolio")}
             </p>
           </div>
           
-          <nav aria-label="Enlaces de pie de página">
+          <nav aria-label={t("footer.nav.aria", "Enlaces de pie de página")}>
             <ul className="flex flex-wrap justify-center gap-8">
               <li>
                 <a href="#hero" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
-                  Inicio
+                  {t("footer.nav.home", "Inicio")}
                 </a>
               </li>
               <li>
                 <a href="#timeline" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
-                  Línea de Tiempo
+                  {t("footer.nav.timeline", "Línea de Tiempo")}
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
-                  Historia
+                  {t("footer.nav.about", "Historia")}
                 </a>
               </li>
               <li>
                 <a href="#sources" className="text-mustang-silver hover:text-mustang-white text-sm transition-colors duration-300">
-                  Fuentes
+                  {t("footer.nav.sources", "Fuentes")}
                 </a>
               </li>
             </ul>
@@ -42,7 +47,7 @@ export default function Footer() {
         
         <div className="mt-12 pt-8 border-t border-mustang-border text-center">
           <p className="text-mustang-gray text-sm">
-            © {currentYear} Mustang GT Timeline. Todos los derechos reservados.
+            © {currentYear} {t("footer.copyright", "Mustang GT Timeline. Todos los derechos reservados.")}
           </p>
         </div>
       </div>

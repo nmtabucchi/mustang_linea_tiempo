@@ -1,15 +1,20 @@
+"use client";
+
 import mustangGenerations from "../data/mustang";
+import { useI18n } from "../lib/I18nProvider";
 
 export default function Sources() {
+  const { t } = useI18n();
+
   return (
-    <section id="sources" className="py-16 md:py-16 bg-mustang-dark-secondary" aria-label="Fuentes y referencias">
+    <section id="sources" className="py-16 md:py-16 bg-mustang-dark-secondary" aria-label={t("sources.section.aria", "Fuentes y referencias")}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-mustang-white mt-4 mb-6">
-            Fuentes y Referencias
+            {t("sources.title", "Fuentes y Referencias")}
           </h2>
           <p className="text-mustang-silver text-lg max-w-2xl mx-auto">
-            Información obtenida de fuentes confiables y verificadas
+            {t("sources.subtitle", "Información obtenida de fuentes confiables y verificadas")}
           </p>
         </div>
 
@@ -31,7 +36,7 @@ export default function Sources() {
               <div className="space-y-4">
                 <div>
                   <h4 className="text-sm font-semibold text-mustang-silver uppercase tracking-wider mb-2">
-                    Información
+                    {t("sources.information", "Información")}
                   </h4>
                   <ul className="space-y-2">
                     {generation.sources.information.map((source, idx) => (
@@ -64,7 +69,7 @@ export default function Sources() {
 
                 <div>
                   <h4 className="text-sm font-semibold text-mustang-silver uppercase tracking-wider mb-2">
-                    Imágenes
+                    {t("sources.images", "Imágenes")}
                   </h4>
                   <ul className="space-y-2">
                     {generation.sources.images.map((source, idx) => (
@@ -101,8 +106,7 @@ export default function Sources() {
 
         <div className="mt-12 text-center">
           <p className="text-mustang-gray text-sm">
-            Las imágenes utilizadas son de fuentes libres de derechos (Unsplash, Pexels, Wikimedia Commons) 
-            bajo licencias Creative Commons o dominio público.
+            {t("sources.license", "Las imágenes utilizadas son de fuentes libres de derechos (Unsplash, Pexels, Wikimedia Commons) bajo licencias Creative Commons o dominio público.")}
           </p>
         </div>
       </div>

@@ -1,17 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import Button from "./Button";
+import { useI18n } from "../lib/I18nProvider";
 
 export default function Hero() {
+  const { t } = useI18n();
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-mustang-dark overflow-hidden"
-      aria-label="Hero"
     >
       <div className="absolute inset-0 z-10">
         <Image
           src="/images/mustang/hero.jpg"
-          alt="Ford Mustang GT clásico en color rojo"
+          alt={t("hero.image.alt", "Ford Mustang GT clásico en color rojo")}
           fill
           className="object-cover opacity-60"
           priority
@@ -22,17 +26,16 @@ export default function Hero() {
 
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">        
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-mustang-white mb-6 leading-tight">
-          Ford Mustang GT
+          {t("hero.title", "Ford Mustang GT")}
         </h1>
         
         <p className="text-mustang-silver text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-          Explora la evolución histórica del automóvil más icónico de América.
-          Desde 1964 hasta la actualidad.
+          {t("hero.subtitle", "Explora la evolución histórica del automóvil más icónico de América. Desde 1964 hasta la actualidad.")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="#timeline" variant="secondary">
-            Explorar Línea de Tiempo
+            {t("hero.cta", "Explorar Línea de Tiempo")}
           </Button>
         </div>
       </div>
@@ -41,7 +44,7 @@ export default function Hero() {
         <a
           href="#timeline"
           className="flex flex-col items-center gap-2 text-mustang-silver hover:text-mustang-white transition-colors duration-300"
-          aria-label="Desplazarse a la línea de tiempo"
+          aria-label={t("hero.scroll.aria", "Desplazarse a la línea de tiempo")}
         >
           <svg
             className="w-5 h-5 animate-bounce"
